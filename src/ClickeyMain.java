@@ -13,16 +13,15 @@ public class ClickeyMain implements NativeKeyListener {
     Clip clip;
     AudioInputStream audioIn;
 
-    public static final int KEY = 0;
-    public static final int BACK = 1;
-    public static final int SPACE = 2;
+    public static final int BACK = 14;
+    public static final int SPACE = 57;
 
     public void load(NativeKeyEvent e) throws IOException, LineUnavailableException, UnsupportedAudioFileException {
         String filePath = new File("").getAbsolutePath();
 
-        if (e.getKeyCode() == 14) {
+        if (e.getKeyCode() == BACK) {
             filePath = filePath.concat("/src/sounds/key_press_delete.wav");
-        } else if (e.getKeyCode() == 57) {
+        } else if (e.getKeyCode() == SPACE) {
             filePath = filePath.concat("/src/sounds/key_press_modifier.wav");
         } else {
             filePath = filePath.concat("/src/sounds/key_press_click.wav");
