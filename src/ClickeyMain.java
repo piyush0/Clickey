@@ -4,9 +4,10 @@ import org.jnativehook.keyboard.NativeKeyEvent;
 import org.jnativehook.keyboard.NativeKeyListener;
 
 import javax.sound.sampled.*;
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
-
+import java.io.InputStream;
 
 public class ClickeyMain implements NativeKeyListener {
 
@@ -17,17 +18,17 @@ public class ClickeyMain implements NativeKeyListener {
     public static final int SPACE = 57;
 
     public void load(NativeKeyEvent e) throws IOException, LineUnavailableException, UnsupportedAudioFileException {
-        String filePath = new File("").getAbsolutePath();
-
+        String filePath = "";
         if (e.getKeyCode() == BACK) {
-            filePath = filePath.concat("/src/sounds/key_press_delete.wav");
+            filePath = "/sounds/key_press_delete.wav";
         } else if (e.getKeyCode() == SPACE) {
-            filePath = filePath.concat("/src/sounds/key_press_modifier.wav");
+            filePath = "/sounds/key_press_modifier.wav";
         } else {
-            filePath = filePath.concat("/src/sounds/key_press_click.wav");
+            filePath = "/sounds/key_press_click.wav";
         }
-        File soundFile = new File(filePath);
-        audioIn = AudioSystem.getAudioInputStream(soundFile);
+        InputStream audioSrc = getClass().getResourceAsStream(filePath);
+        InputStream bufferedIn = new BufferedInputStream(audioSrc);
+        audioIn = AudioSystem.getAudioInputStream(bufferedIn);
         clip = AudioSystem.getClip();
         clip.open(audioIn);
         clip.start();
@@ -75,7 +76,6 @@ public class ClickeyMain implements NativeKeyListener {
         }
 
         GlobalScreen.addNativeKeyListener(new ClickeyMain());
-
     }
 
 }
