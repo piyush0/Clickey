@@ -11,7 +11,7 @@ For Mac OS, I have already included Clickey.app in /Bundled Applications.
 #### Note
 Will require system permissions when you'll run it for the first time.
 
-For Linux/Windows : (Assuming you have java installed)
+Using Command Line : (Assuming you have java installed)
 ```
 git clone https://github.com/piyush0/Clickey
 
@@ -19,6 +19,7 @@ cd Clickey/"Bundled Applications"
 
 java -jar Clickey.jar
 ```
+
 
 ### Dependencies
 
