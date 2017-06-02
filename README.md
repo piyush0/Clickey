@@ -20,7 +20,6 @@ cd Clickey/"Bundled Applications"
 java -jar Clickey.jar
 ```
 
-
 ### Dependencies
 
 [jnativehook by kwhat](https://github.com/kwhat/jnativehook)
